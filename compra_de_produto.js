@@ -9,15 +9,20 @@ Código, condição de pagamento:
 - Em duas vezes no crédito, preço sem desconto sem juros.
 - Acima de duas vezes no crédito, preço normal da etiqueta, mais juros de 10%
 */
-
+function aplicarDesconto(valor, desconto){
+    return (valor - (valor * (desconto / 100)));
+}
+function aplicarJuros(valor, juros){
+    return (valor + (valor * (juros / 100)));
+}
 let precoEtiqueta = 150;
-let condicaoDePagamento = 4;
+let condicaoDePagamento = 2;
 if(condicaoDePagamento === 1){
-    console.log(precoEtiqueta - (precoEtiqueta * 0.1));
+    console.log(aplicarDesconto(precoEtiqueta, 10));
 }else if(condicaoDePagamento === 2){
-    console.log(precoEtiqueta - (precoEtiqueta * 0.15));
+    console.log(aplicarDesconto(precoEtiqueta, 15));
 }else if(condicaoDePagamento === 3){
     console.log(precoEtiqueta);
 }else {
-    console.log(precoEtiqueta + (precoEtiqueta * 0.1));
+    console.log(aplicarJuros(precoEtiqueta, 10));
 }
